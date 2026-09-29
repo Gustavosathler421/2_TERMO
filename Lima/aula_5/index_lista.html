@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <!-- Este aparece apenas na aba do navegador (sem cor) -->
+    <title>Lista Ordenadas e não Ordenadas</title>
+    
+    <style>
+        body {
+            background-color: #fafafa; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 50px;
+        }
+
+        .titulo-gradiente {
+            font-size: 50px;
+            font-weight: 800;
+            
+            /* Degradê passando por roxo, azul, verde e laranja */
+            background: linear-gradient(to right, #6358e1, #1cb6cb, #58b368, #f4a222);
+            
+            /* Aplica o degradê estritamente no texto */
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Este é o título visível na página com o efeito degradê -->
+    <h1 class="titulo-gradiente">Lista Ordenadas e não Ordenadas</h1>
+    <h1>lista Ordenadas</h1>
+    <ol type="A" start="1">
+        <li>Opção 1</li>
+        <li>Opção 2</li>
+        <ol type="a" start="1">
+            <li>Opção 1.1</li>
+        </ol>
+        <li>Opção 3</li>
+    </ol>
+
+    <h1>Lista não Ordenadas</h1>
+    <!-- Tipos = square circle disc -->
+    <ul type="square">
+        <li>Item 1</li>
+    </ul>
+
+    <h1>Misturando listas</h1>
+    <ol>
+        <li>Jogos de Celular</li>
+        <ul>
+            <li>Roblox</li>
+            <li>Minecraft</li>
+            <li>Genshin Impact</li>
+            <li>Dead Island</li>
+            <li>Fortnti</li>
+        </ul>
+        <li>Jogos de PC</li>
+        <ul>
+            <li>Valorant</li>
+            <li>Tomb Raider</li>
+            <li>Mortal Kombat</li>
+        </ul>
+    </ol>
+
+    <ol>
+      <ol><li>Terror</li>
+      <ul>
+        <li>It:A coisa</li>
+        <ul type="disc"><li>It:Bem_vindos a Derry</li></ul>
+        <li>The walking dead</li>
+        <li>American Horror Story</li>
+      </ul></ol>
+
+      
+      <ol><li>Ação</li>
+        <ul><li>The Boys</li>
+        <ul type="disc"><li>Gen V</li></ul>
+        <li>Spectacular Spider man</li>
+        <li>Iron man:animated series</li>
+      </ol></ul>
+        
+
+      
+      <ol><li>Misterio</li>
+        <ul><li>Pretty Little Liars</li>
+        <ul type="disc"><li>Pretty Little Liars: Um Novo Pecado</li></ul>
+        <li>Silo</li>
+        <li>Lanternas</li></ul>
+        
+      </ol>
+
+
+
+
+
+
+
+
+
+
+    </ol>
+
+</body>
+</html>
