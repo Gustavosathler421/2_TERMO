@@ -1,0 +1,31 @@
+/* Exercicio 1 */
+.equipe {
+    display: flex;
+
+/* Exercicio 2 */
+    gap: 30px;
+
+/* Exercicio 3 */
+    /* justify-content: flex-start; */
+    /* justify-content: center; centralizou */
+    /* justify-content: flex-end; Colocou os textos no final da linha */
+    /* justify-content: space-between; Distanciou um texto do outro */
+    /* justify-content: space-evenly; deixou um espaço exatamente igual entre cada texto */
+}
+
+/* Exercicio 4 */
+.area {
+    /* align-items: flex-start; */
+    align-items: center;
+    /* align-items: flex-end; */
+}
+
+/* Exercicio 5 */
+.cards {
+    display: flex;
+    gap: 20px;
+    /* O display: flex deve ser aplicado no elemento .cards, porque ele é o elemento que contém os três produtos. */
+}
+
+
+
