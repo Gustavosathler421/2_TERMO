@@ -202,4 +202,77 @@ WHERE nome = 'Excluir Depois';
 SELECT * FROM categoria
 WHERE nome = 'Excluir Depois';
 
+-- PARTE D - INTEGRIDADE E ERROS CONTROLADOS
+-- Execute uma tentativa por vez. Depois deixe o comando problemático comentado.
+
+--- 17. Produto com categoria inexistente
+-- Qual restrição impediu a operação?
+-- FOREIGN KEY impediu a operação.
+-- INSERT INTO produto (nome, preco, ativo, id_categoria)
+-- VALUES ('Café Teste', 10.00, TRUE, 9999);
+
+
+-- 18. Tente cadastrar um cliente usando 'ana@email.com'.
+-- Qual restrição impediu a operação?
+-- UNIQUE impediu a operação.
+
+-- INSERT INTO cliente (nome, email, telefone, cidade, ativo)
+-- VALUES ('Ana Teste', 'ana@email.com', '1999999999', 'Limeira', TRUE);
+
+
+
+
+-- 19. Tente criar um pedido com id_cliente = 9999.
+-- Qual restrição impediu a operação?
+-- FOREIGN KEY impediu a operação.
+
+-- INSERT INTO pedido (data_pedido, status, valor_total, id_cliente)
+-- VALUES ('2026-10-14 10:00:00', 'ABERTO', 20.00, 9999);
+
+
+-- 20. Escreva em comentários a diferença entre os três erros anteriores.
+
+-- 17: Categoria inexistente (FOREIGN KEY).
+-- 18: E-mail duplicado (UNIQUE).
+-- 19: Cliente inexistente (FOREIGN KEY).
+
+
+
+
+-- PARTE E - DESAFIO COMPLETO COM TRANSAÇÃO
+
+-- 21. Inicie uma transação.
+START TRANSACTION;
+
+
+-- 22. Cadastre um cliente, um pedido e dois itens.
+INSERT INTO cliente (nome, email, telefone, cidade, ativo)
+VALUES ('Carlos Teste', 'carlos_teste@email.com',
+'1999999000', 'Limeira', TRUE);
+
+SET @cliente = LAST_INSERT_ID();
+
+INSERT INTO pedido (data_pedido, status, valor_total, id_cliente)
+VALUES ('2026-10-14 10:00:00', 'ABERTO', 17.00, @cliente);
+
+SET @pedido = LAST_INSERT_ID();
+
+INSERT INTO item_pedido
+(id_pedido, id_produto, quantidade, preco_unitario)
+VALUES
+(@pedido, 1, 1, 7.00),
+(@pedido, 2, 1, 10.00);
+
+
+-- 24. Desfaça o cadastro e consulte.
+ROLLBACK;
+
+SELECT *
+FROM cliente
+WHERE email = 'carlos_teste@email.com';
+
+
+-- 25. Repita com novos dados e finalize com COMMIT.
+
+
 
