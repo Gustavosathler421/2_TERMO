@@ -1,0 +1,26 @@
+.grid-coluna {
+    display: grid;
+    /* grid-template-columns: repeat(3, 1fr); */
+        /* grid-template-columns: repeat(2, 1fr); */
+            /* grid-template-columns: 2fr 1fr; */
+                /* grid-template-columns: repeat(4, 1fr); */
+                    /* grid-template-columns: repeat(3, 1fr);     */
+                    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+}
+
+/* a primeira coluna fica duas vezes maior que a segunda, pois recebe duas vezes o espaço disponível, e a segunda recebeu uma. */
+
+/* Tablet */
+@media (max-width: 900px) {
+    .lab-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Celular */
+@media (max-width: 600px) {
+    .lab-grid {
+        grid-template-columns: 1fr;
+    }
+}

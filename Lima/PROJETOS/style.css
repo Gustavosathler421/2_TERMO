@@ -133,7 +133,7 @@ article {
     background-color: #ead2b5;
     padding: 15px;
 }
-article img {
+.produto img {
     width: 100%;
     max-width: 200%;
     height: 300px;
