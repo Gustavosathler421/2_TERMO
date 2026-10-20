@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -15,75 +16,192 @@
         <h1>SmartCoffee</h1>
 
         <nav>
-            <a href="#inicio">Inicio</a>
+            <a href="#inicio">Início</a>
             <a href="#sobre">Sobre</a>
             <a href="#produtos">Produtos</a>
+            <a href="#ambiente">Ambiente</a>
             <a href="#contato">Contato</a>
         </nav>
     </header>
 
     <!-- Início -->
     <section id="inicio">
-        <p>Sabores que conectam</p>
-        <h2>CAFÉ QUE CONECTA AS PESSOAS</h2>
-        <p>Mais que café, uma experiência</p>
+        <div class="inicio-texto">
+            <p>Sabores que conectam</p>
 
-        <button>Ver cardápio</button>
+            <h2>CAFÉ QUE CONECTA AS PESSOAS</h2>
 
-        <img src="#" alt="Imagem do café">
+            <p>
+                Mais que café, uma experiência. Na SmartCoffee,
+                cada xícara é preparada para transformar momentos
+                simples em lembranças especiais.
+            </p>
+
+            <button type="button" onclick="document.getElementById('produtos').scrollIntoView({behavior: 'smooth'})">
+                Ver cardápio
+            </button>
+        </div>
+
+        <img
+            src="https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=1337&auto=format&fit=crop"
+            alt="Xícara de café preparada com cuidado">
     </section>
 
     <!-- Sobre -->
     <section id="sobre">
-        <p>Quem nós somos</p>
-        <h2>Sobre Nós</h2>
+        <img
+            src="https://images.unsplash.com/photo-1599579089328-852ca6423ef0?q=80&w=1170&auto=format&fit=crop"
+            alt="Preparo de café em uma cafeteria">
 
-        <button>Saiba mais</button>
+        <div class="sobre-texto">
+            <p>Quem nós somos</p>
 
-        <img src="#" alt="Imagem sobre nós">
+            <h2>Sobre Nós</h2>
+
+            <p>
+                A SmartCoffee nasceu da paixão pelo café e pela vontade
+                de aproximar pessoas. Valorizamos o sabor, a qualidade
+                dos ingredientes e o cuidado em cada preparo.
+            </p>
+
+            <p>
+                Queremos que cada visita seja uma oportunidade de
+                relaxar, conversar e aproveitar bons momentos.
+            </p>
+
+            <button type="button" onclick="document.getElementById('contato').scrollIntoView({behavior: 'smooth'})">
+                Saiba mais
+            </button>
+        </div>
     </section>
 
     <!-- Produtos -->
     <section id="produtos">
-        <h2>Nossos cafés</h2>
+
+        <div class="produtos-titulo">
+            <h2>Nossos cafés</h2>
+
+            <p>
+                Encontre seu sabor favorito e aproveite cada xícara.
+            </p>
+        </div>
 
         <article>
-            <img src="#" alt="Café 1">
-            <h3>Café 1</h3>
+            <img
+                src="https://images.unsplash.com/photo-1507915135761-41a0a222c709?q=80&w=1171&auto=format&fit=crop"
+                alt="Café espresso">
+
+            <h3>Café Espresso</h3>
+
+            <p>
+                Intenso e encorpado, com aroma marcante para quem
+                aprecia o sabor tradicional do café.
+            </p>
         </article>
 
         <article>
-            <img src="#" alt="Café 2">
-            <h3>Café 2</h3>
+            <img
+                src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?q=80&w=1170&auto=format&fit=crop"
+                alt="Cappuccino cremoso">
+
+            <h3>Café Cappuccino</h3>
+
+            <p>
+                Uma combinação cremosa de café e leite,
+                perfeita para uma pausa aconchegante.
+            </p>
         </article>
 
         <article>
-            <img src="#" alt="Café 3">
-            <h3>Café 3</h3>
+            <img
+                src="https://images.unsplash.com/photo-1502462041640-b3d7e50d0662?q=80&w=1171&auto=format&fit=crop"
+                alt="Café latte">
+
+            <h3>Café Latte</h3>
+
+            <p>
+                Suave e equilibrado, com leite cremoso
+                para deixar seu momento ainda mais especial.
+            </p>
         </article>
+
     </section>
 
     <!-- Ambiente -->
-    <section>
-        <img src="#" alt="Nosso ambiente">
+    <section id="ambiente">
 
-        <h2>Nosso ambiente</h2>
+        <img
+            src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80"
+            alt="Interior aconchegante de uma cafeteria">
 
-        <button>Conheça</button>
+        <div class="ambiente-texto">
+            <p>Um espaço para relaxar</p>
+
+            <h2>Nosso ambiente</h2>
+
+            <p>
+                Na SmartCoffee, cada detalhe foi pensado para
+                proporcionar conforto e momentos especiais.
+                Um ambiente aconchegante, com aroma de café fresco,
+                perfeito para encontrar amigos, trabalhar ou
+                aproveitar uma pausa no dia.
+            </p>
+
+            <button type="button" onclick="document.getElementById('contato').scrollIntoView({behavior: 'smooth'})">
+                Conheça
+            </button>
+        </div>
+
     </section>
 
     <!-- Contato -->
     <section id="contato">
-        <p>Contato</p>
-        <h2>Fale com a gente</h2>
 
-        <form>
-            <input type="text" placeholder="Nome">
-            <input type="email" placeholder="E-Mail">
-            <input type="text" placeholder="Mensagem">
+        <div class="contato-texto">
+            <p>Entre em contato</p>
 
-            <button>Enviar Mensagem</button>
+            <h2>Fale com a gente</h2>
+
+            <p>
+                Tem alguma dúvida, sugestão ou quer saber mais
+                sobre nossos cafés? Será um prazer conversar com você.
+            </p>
+
+            <p>
+                Envie sua mensagem e compartilhe sua experiência
+                com a SmartCoffee.
+            </p>
+        </div>
+
+        <form onsubmit="event.preventDefault(); alert('Mensagem preenchida! Para enviar de verdade, conecte o formulário a um serviço de envio.');">
+
+            <label for="nome">Nome</label>
+            <input
+                type="text"
+                id="nome"
+                name="nome"
+                placeholder="Seu nome"
+                required>
+
+            <label for="email">E-mail</label>
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Seu e-mail"
+                required>
+
+            <label for="mensagem">Mensagem</label>
+            <textarea
+                id="mensagem"
+                name="mensagem"
+                placeholder="Escreva sua mensagem"
+                required></textarea>
+
+            <button type="submit">Enviar Mensagem</button>
+
         </form>
+
     </section>
 
     <!-- Rodapé -->
@@ -91,11 +209,14 @@
         <h2>SmartCoffee</h2>
 
         <nav>
-            <a href="#inicio">Inicio</a>
+            <a href="#inicio">Início</a>
             <a href="#sobre">Sobre</a>
             <a href="#produtos">Produtos</a>
+            <a href="#ambiente">Ambiente</a>
             <a href="#contato">Contato</a>
         </nav>
+
+        <p>© 2026 SmartCoffee. Todos os direitos reservados.</p>
     </footer>
 
 </body>
