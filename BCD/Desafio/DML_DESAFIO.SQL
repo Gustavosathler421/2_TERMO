@@ -219,9 +219,6 @@ WHERE nome = 'Excluir Depois';
 -- INSERT INTO cliente (nome, email, telefone, cidade, ativo)
 -- VALUES ('Ana Teste', 'ana@email.com', '1999999999', 'Limeira', TRUE);
 
-
-
-
 -- 19. Tente criar um pedido com id_cliente = 9999.
 -- Qual restrição impediu a operação?
 -- FOREIGN KEY impediu a operação.
@@ -244,8 +241,8 @@ WHERE nome = 'Excluir Depois';
 -- 21. Inicie uma transação.
 START TRANSACTION;
 
+-- 22. Dentro dela, cadastre um cliente, um pedido e dois itens relacionados.
 
--- 22. Cadastre um cliente, um pedido e dois itens.
 INSERT INTO cliente (nome, email, telefone, cidade, ativo)
 VALUES ('Carlos Teste', 'carlos_teste@email.com',
 '1999999000', 'Limeira', TRUE);
@@ -263,13 +260,49 @@ VALUES
 (@pedido, 1, 1, 7.00),
 (@pedido, 2, 1, 10.00);
 
+-- 23. Faça uma consulta com JOIN comprovando que os registros existem
+--     enquanto a transação está aberta.
 
--- 24. Desfaça o cadastro e consulte.
+-- 24. Execute ROLLBACK e depois use SELECT para provar que o cadastro foi desfeito.
 ROLLBACK;
-
 SELECT *
 FROM cliente
 WHERE email = 'carlos_teste@email.com';
 
 
--- 25. Repita com novos dados e finalize com COMMIT.
+-- 25. Repita o processo com novos dados e finalize usando COMMIT.
+--     Depois consulte os registros persistidos. START TRANSACTION;
+
+INSERT INTO CLIENTE (NOME, EMAIL, TELEFONE, CIDADE, ATIVO)
+VALUES ('PEDRO TESTE', 'pedro_teste@email.com',
+'1999999111', 'AMERICANA', TRUE);
+
+SET @CLIENTE = LAST_INSERT_ID();
+
+INSERT INTO PEDIDO (DATA_PEDIDO, STATUS, VALOR_TOTAL, ID_CLIENTE)
+VALUES ('2026-10-21 11:00:00', 'ABERTO', 17.00, @CLIENTE);
+
+SET @PEDIDO = LAST_INSERT_ID();
+
+INSERT INTO ITEM_PEDIDO
+(ID_PEDIDO, ID_PRODUTO, QUANTIDADE, PRECO_UNITARIO)
+VALUES
+(@PEDIDO, 1, 1, 7.00),
+(@PEDIDO, 2, 1, 10.00);
+
+COMMIT;
+
+SELECT C.NOME AS CLIENTE, P.ID_PEDIDO,
+PR.NOME AS PRODUTO, IP.QUANTIDADE, IP.PRECO_UNITARIO
+FROM CLIENTE AS C
+INNER JOIN PEDIDO AS P
+ON P.ID_CLIENTE = C.ID_CLIENTE
+INNER JOIN ITEM_PEDIDO AS IP
+ON IP.ID_PEDIDO = P.ID_PEDIDO
+INNER JOIN PRODUTO AS PR
+ON PR.ID_PRODUTO = IP.ID_PRODUTO
+WHERE C.EMAIL = 'pedro_teste@email.com';
+
+-- DESAFIO EXTRA
+-- 26. Escolha uma situação realista do SmartCoffee que exija INSERT + UPDATE
+--     ou UPDATE + DELETE lógico. Descreva a regra de negócio e implemente.
