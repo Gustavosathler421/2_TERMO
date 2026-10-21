@@ -433,3 +433,4 @@ ORDER BY PREÇO_MÉDIO DESC;
 
 
 
+

@@ -273,6 +273,3 @@ WHERE email = 'carlos_teste@email.com';
 
 
 -- 25. Repita com novos dados e finalize com COMMIT.
-
-
-
