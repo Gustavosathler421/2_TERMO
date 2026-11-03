@@ -1,18 +1,48 @@
+:root {
+    --marrom: #2d180e;
+    --cafe: #5a321b;
+    --laranja: #c96b16;
+    --creme: #f5e8d6;
+    --bege: #ead2b5;
+    --branco: #ffffff;
+    --texto: #2d180e;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f5e8d6;
-    color: #2d180e;
+    background-color: var(--creme);
+    color: var(--texto);
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+h2 {
+    font-size: 32px;
+    margin: 15px 0;
+    color: var(--marrom);
+}
+
+p {
+    margin: 10px 0;
 }
 
 header {
-    background-color: #2d180e;
-    color: white;
+    background-color: var(--marrom);
+    color: var(--branco);
     padding: 20px 8%;
     display: flex;
     justify-content: space-between;
@@ -22,7 +52,7 @@ header {
 header h1 {
     display: flex;
     align-items: center;
-    color: white;
+    color: var(--branco);
 }
 
 nav {
@@ -31,8 +61,17 @@ nav {
 }
 
 nav a {
-    color: white;
+    color: var(--branco);
     text-decoration: none;
+}
+
+nav a:hover {
+    color: var(--laranja);
+}
+
+nav a:focus-visible {
+    outline: 2px solid var(--laranja);
+    outline-offset: 4px;
 }
 
 section {
@@ -40,29 +79,27 @@ section {
     border-bottom: 1px solid #d8b99c;
 }
 
-h2 {
-    font-size: 32px;
-    margin: 15px 0;
-}
-
-p {
-    margin: 10px 0;
-}
-
 button {
     padding: 15px 30px;
     margin-top: 20px;
-    background-color: #f5e8d6;
-    border: 1px solid #c96b16;
-    color: #c96b16;
+    background-color: var(--creme);
+    border: 1px solid var(--laranja);
+    color: var(--laranja);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--laranja);
+    color: var(--branco);
 }
 
 img {
     background-color: #d8d8d8;
     width: 80%;
     max-width: 350px;
-    height: 180px;
-    display: block;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
     margin: 15px 0;
 }
 
@@ -72,7 +109,7 @@ img {
     gap: 35px;
     align-items: center;
     justify-content: space-between;
-    background-color: #ead2b5;
+    background-color: var(--bege);
 }
 
 .inicio-texto {
@@ -91,22 +128,23 @@ img {
 #inicio img {
     width: 50%;
     max-width: 450px;
-    height: 300px;
+    height: auto;
     margin: 0;
 }
+
 #sobre {
     display: flex;
     flex-direction: row;
     gap: 35px;
     align-items: center;
     justify-content: space-between;
-    background-color: #f5e8d6;
+    background-color: var(--creme);
 }
 
 #sobre img {
     width: 50%;
     max-width: 450px;
-    height: 300px;
+    height: auto;
     margin: 0;
 }
 
@@ -117,12 +155,14 @@ img {
 .sobre-texto p {
     margin: 10px 0;
 }
+
 #produtos {
     display: flex;
     gap: 23px;
     flex-wrap: wrap;
     justify-content: space-between;
 }
+
 #produtos h2 {
     width: 100%;
 }
@@ -130,34 +170,47 @@ img {
 article {
     flex: 1;
     min-width: 220px;
-    background-color: #ead2b5;
+    background-color: var(--bege);
     padding: 15px;
 }
+
+.img {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 8px 24px rgba(43, 23, 13, 0.08);
+}
+
+.img:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(43, 23, 13, 0.12);
+}
+
 .produto img {
     width: 100%;
-    max-width: 200%;
-    height: 300px;
+    max-width: 100%;
+    height: auto;
     margin: 0;
 }
+
 article h3 {
-    border: 1px solid #c96b16;
+    border: 1px solid var(--laranja);
     padding: 20px;
     text-align: center;
     margin-top: 10px;
-    background-color: #f5e8d6;
+    background-color: var(--creme);
 }
+
 #ambiente {
     display: flex;
     gap: 30px;
     align-items: center;
     justify-content: space-between;
-    background-color: #ead2b5;
+    background-color: var(--bege);
 }
 
 #ambiente img {
     width: 80%;
     max-width: 300px;
-    height: 180px;
+    height: auto;
     margin: 0;
 }
 
@@ -167,6 +220,7 @@ article h3 {
     justify-content: space-between;
     align-items: center;
 }
+
 #contato p,
 #contato h2 {
     flex: 1;
@@ -184,16 +238,17 @@ textarea {
     padding: 12px;
     margin: 8px 0;
     border: none;
-    background-color: #ead2b5;
+    background-color: var(--bege);
 }
 
 form button {
-    background-color: #c96b16;
-    color: white;
+    background-color: var(--laranja);
+    color: var(--branco);
 }
+
 footer {
-    background-color: #2d180e;
-    color: white;
+    background-color: var(--marrom);
+    color: var(--branco);
     padding: 30px 8%;
     display: flex;
     justify-content: space-between;
@@ -201,5 +256,5 @@ footer {
 }
 
 footer nav a {
-    color: white;
+    color: var(--branco);
 }
