@@ -101,9 +101,9 @@ VALUES
 -- 9. Inserir Locações
 
 INSERT INTO LOCACAO (ID_CLIENTE, ID_JOGO, DATA_PREVISTA, STATUS) VALUES
-(1, 2, '2026-11-24', 'ABERTA'),
-(2, 4, '2026-11-24', 'ABERTA'),
-(3, 1, '2026-11-24', 'ABERTA');
+(1, 2, '2026-11-24', 'ABERTO'),
+(2, 4, '2026-11-24', 'ABERTO'),
+(3, 1, '2026-11-24', 'ABERTO');
 
 UPDATE JOGO 
 SET QUANTIDADE_DISPONIVEL = QUANTIDADE_DISPONIVEL - 1 
@@ -209,3 +209,89 @@ LEFT JOIN LOCACAO
 ON CLIENTE.id_cliente = LOCACAO.id_cliente
 GROUP BY CLIENTE.id_cliente, CLIENTE.nome
 ORDER BY total_locacoes DESC;
+
+-- FASE 4 - TCL: TRANSACOES E INTEGRIDADE
+
+-- 22. TRANSAÇÃO DE LOCAÇÃO
+
+START TRANSACTION;
+
+INSERT INTO LOCACAO (data_prevista, status, id_cliente, id_jogo)
+VALUES (DATE_ADD(CURDATE(), INTERVAL 7 DAY), 'ABERTA', 4, 3);
+
+UPDATE JOGO
+SET quantidade_disponivel = quantidade_disponivel - 1
+WHERE id_jogo = 3;
+
+SELECT * FROM LOCACAO;
+SELECT * FROM JOGO;
+
+COMMIT;
+
+-- 23. ROLLBACK - DESFAZER ALTERAÇÕES
+
+START TRANSACTION;
+
+SELECT * FROM JOGO WHERE id_jogo = 1;
+
+UPDATE JOGO
+SET quantidade_disponivel = quantidade_disponivel + 10
+WHERE id_jogo = 1;
+
+SELECT * FROM JOGO WHERE id_jogo = 1;
+
+ROLLBACK;
+
+SELECT * FROM JOGO WHERE id_jogo = 1;
+
+-- 24. SAVEPOINT 
+
+START TRANSACTION;
+
+UPDATE JOGO
+SET quantidade_disponivel = quantidade_disponivel + 1
+WHERE id_jogo = 1;
+
+SAVEPOINT PRIMEIRA_ALTERACAO;
+
+UPDATE JOGO
+SET quantidade_disponivel = quantidade_disponivel + 5
+WHERE id_jogo = 2;
+
+SELECT * FROM JOGO;
+
+ROLLBACK TO SAVEPOINT PRIMEIRA_ALTERACAO;
+
+SELECT * FROM JOGO;
+
+COMMIT;
+
+-- 25. TRANSAÇÃO DE DEVOLUÇÃO
+
+START TRANSACTION;
+
+UPDATE LOCACAO
+SET status = 'DEVOLVIDA',
+    data_devolucao = CURDATE()
+WHERE id_locacao = (
+    SELECT id_locacao
+    FROM LOCACAO
+    WHERE status = 'ABERTA'
+    ORDER BY id_locacao
+    LIMIT 1
+);
+
+UPDATE JOGO
+SET quantidade_disponivel = quantidade_disponivel + 1
+WHERE id_jogo = (
+    SELECT id_jogo
+    FROM LOCACAO
+    WHERE status = 'DEVOLVIDA'
+    ORDER BY id_locacao DESC
+    LIMIT 1
+);
+
+SELECT * FROM LOCACAO;
+SELECT * FROM JOGO;
+
+COMMIT;
