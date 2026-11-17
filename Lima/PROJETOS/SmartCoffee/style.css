@@ -1,11 +1,11 @@
 :root {
-    --marrom: #2d180e;
+    --marrom: #2b170d;
     --cafe: #5a321b;
-    --laranja: #c96b16;
-    --creme: #f5e8d6;
-    --bege: #ead2b5;
+    --laranja: #c66a1a;
+    --creme: #fff9f3;
+    --bege: #f3e6d7;
     --branco: #ffffff;
-    --texto: #2d180e;
+    --texto: #1e140f;
 }
 
 * {
@@ -76,13 +76,13 @@ nav a:focus-visible {
 
 section {
     padding: 50px 8%;
-    border-bottom: 1px solid #d8b99c;
+    border-bottom: 1px solid #e7d8c8;
 }
 
 button {
     padding: 15px 30px;
     margin-top: 20px;
-    background-color: var(--creme);
+    background-color: #fff9f3;
     border: 1px solid var(--laranja);
     color: var(--laranja);
     cursor: pointer;
@@ -109,7 +109,7 @@ img {
     gap: 35px;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--bege);
+    background-color: #f3e6d7;
 }
 
 .inicio-texto {
@@ -138,7 +138,7 @@ img {
     gap: 35px;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--creme);
+    background-color: #fffdf9;
 }
 
 #sobre img {
@@ -157,6 +157,7 @@ img {
 }
 
 #produtos {
+    background-color: #f3e6d7;
     display: flex;
     gap: 23px;
     flex-wrap: wrap;
@@ -170,7 +171,7 @@ img {
 article {
     flex: 1;
     min-width: 220px;
-    background-color: var(--bege);
+    background-color: #ffffff;
     padding: 15px;
 }
 
@@ -196,7 +197,7 @@ article h3 {
     padding: 20px;
     text-align: center;
     margin-top: 10px;
-    background-color: var(--creme);
+    background-color: #fff9f3;
 }
 
 #ambiente {
@@ -204,7 +205,12 @@ article h3 {
     gap: 30px;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--bege);
+    background: linear-gradient(135deg, #2b170d, #5a321b);
+    color: #ffffff;
+}
+
+#ambiente h2 {
+    color: #ffffff;
 }
 
 #ambiente img {
@@ -238,7 +244,7 @@ textarea {
     padding: 12px;
     margin: 8px 0;
     border: none;
-    background-color: var(--bege);
+    background-color: #ffffff;
 }
 
 form button {
